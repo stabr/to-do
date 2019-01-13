@@ -8,6 +8,6 @@ class TaskForm(forms.ModelForm):
         fields = [
             'item',
             'completed',
-            # 'deadline',
+            'deadline',
             'asignee',
             ]
