@@ -13,6 +13,7 @@ def home(request):
     all_items = Task.objects.all
     if request.method == 'POST':
         form = TaskForm(request.POST or None)
+        messages.success(request, (form))
         if form.is_valid():
             form.save()
             messages.success(request, ('Item has been added to the list.'))
@@ -35,6 +36,7 @@ def cross_off(request, list_id):
 
 
 def uncross(request, list_id):
+    messages.success(request, (request.method))
     item = get_object_or_404(Task, pk=list_id)
     item.completed = False
     item.save()

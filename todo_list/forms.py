@@ -9,5 +9,5 @@ class TaskForm(forms.ModelForm):
             'item',
             'completed',
             'deadline',
-            'asignee',
+            'asignee'
             ]

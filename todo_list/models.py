@@ -14,8 +14,9 @@ class Task(models.Model):
     completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    deadline = models.DateField(default=datetime.now, blank=True)
-    asignee = models.CharField(default='John', max_length=200)
+    deadline = models.DateField(default=datetime.today, blank=True, null=True)
+    # deadline = models.CharField(max_length=50)
+    asignee = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.item + ' | ' + str(self.completed) + ' | ' + str(self.id)
