@@ -16,32 +16,32 @@
     {% for things in all_items %}
     <div class="container">
     {% if things.completed %}
-        <div class="row" style="background-color:#aaa;">
-            <div class="col">
+    <div class="row" style="background-color:#aaa;">
+        <div class="col" style="background-color:#bbbccc;">
+            <i style="font-size:12px; background-color:#bbbbbc;">From {{ things.created_at }} To {{ things.updated_at }}</i>
             <p><a href="{% url 'todo_list:edit' things.id %}" class="striker">{{ things.item }}</a></p>
             <i style="font-size:12px">Best before - {{ things.deadline }}</i> @{{ things.asignee }}<br>
-            <i style="font-size:12px">{{ things.created_at }} {{ things.updated_at }}</i>
-            </div>
         </div>
-        <div class="row align-items-start">
-            <div class="col" style="background-color:#aaabbb;">
+    </div>
+    <div class="row align-items-start">
+        <div class="col" style="background-color:#aaabbb;">
             <a href="{% url 'todo_list:uncross' things.id %}" class="button btn-secondary btn-sm" role="button" aria-pressed="true">Uncross</a>
             <a href="{% url 'todo_list:delete' things.id %}" class="button btn-secondary btn-sm" role="button" aria-pressed="true">Delete</a>
-            </div>
-        </div><br/>
+        </div>
+    </div><br/>
     {% else %}
-        <div class="row" style="background-color:#aaa;">
-            <div class="col">
+    <div class="row" style="background-color:#aaa;">
+        <div class="col">
             <p><a href="{% url 'todo_list:edit' things.id %}">{{ things.item }}</a></p>
             <i style="font-size:12px">Best before - {{ things.deadline }}</i> @{{ things.asignee }}
-            </div>
         </div>
-        <div class="row align-items-start" style="background-color:#aaabbb;">
-            <div class="col">
+    </div>
+    <div class="row align-items-start" style="background-color:#aaabbb;">
+        <div class="col">
             <a href="{% url 'todo_list:cross_off' things.id %}" class="button btn-secondary btn-sm" role="button" aria-pressed="true">Cross Off</a>
             <a href="{% url 'todo_list:delete' things.id %}" class="button btn-secondary btn-sm" role="button" aria-pressed="true">Delete</a>
-            </div>
-        </div><br/>
+        </div>
+    </div><br/>
     {% endif %}
     </div>
     {% endfor %}
